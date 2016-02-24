@@ -46,7 +46,7 @@ describe("The specification for Orchard", function() {
   it("grow should increase the height of the Tree by the integer passed to it", function() {
 		PearTree.height = 4;
 		PearTree.grow(3);
-		expect(PearTree.height).toBe(7));
+		expect(PearTree.height).toBe(7);
 	});
 
 });

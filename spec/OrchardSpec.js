@@ -8,6 +8,7 @@ describe("The specification for Orchard", function() {
     expect(Tree).toBeDefined();
   });
 
+  // is "prototype" necessary here?
   it("should have an increaseHeight function on the prototype of Plant", function() {
     expect(Plant.prototype.increaseHeight).toBeDefined();
   });
@@ -28,17 +29,26 @@ describe("The specification for Orchard", function() {
     expect(Tree.prototype.trim).toBeDefined();
   });
 
-  // When you invoke the trim method on Tree, the height of the Tree 
-	// should be reduced by the integer value that is passed as an argument (e.g. PearTree.trim(2))
 
-	// When you invoke the trim method on Tree, the values of the 
-	// branches property should be decreased by one.
+  // I don't know if these three tests are correct:
+	it("trim should decrease the height of the Tree by the integer passed to it", function() {
+		PearTree.height = 5;
+		PearTree.trim(2);
+		expect(PearTree.height).toBe(3);
+	});
 
-	// When you invoke the grow method on Tree, the height of the Tree 
-	// should be increased by the integer value that is passed as an argument (e.g. PearTree.grow(2))
+	it("trim should decrease the number of branches on Tree by 1", function() {
+		PearTree.branches = 4;
+		PearTree.trim(2);
+		expect(PearTree.branches).toBe(3);
+	});
 
-  // it("should add two integers", function() {
-  //   expect(add(2, 5)).toBe(7);
-  // });
+  it("grow should increase the height of the Tree by the integer passed to it", function() {
+		PearTree.height = 4;
+		PearTree.grow(3);
+		expect(PearTree.height).toBe(7));
+	});
 
 });
+
+

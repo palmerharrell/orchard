@@ -60,15 +60,3 @@ interval = setInterval(function () {
 	};
 }, 200);
 
-
-// *** TO DO ***
-
-
-// Every tenth time the trees are grown, invoke the trim method. Pass one value to the method 
-// for the pear tree, and a larger value to the method on the oak tree.
-
-// The grow method does nothing but pass an argument to increaseHeight. Is that all it's supposed to do?
-
-
-
-

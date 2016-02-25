@@ -1,10 +1,8 @@
 "use strict";
 
-var pearDiv = document.getElementById("pearTree");
-var oakDiv = document.getElementById("oakTree");
-var pearInterval;
-var oakInterval;
+var interval = null;
 var counter = 0;
+var outputDiv = document.getElementById("output");
 
 function Plant() {};
 
@@ -16,7 +14,7 @@ Plant.prototype.increaseHeight = function(growth) {
 		if (this.height%10 === 0) {
 			this.branches++;
 		};
-	};	
+	};
 };
 
 Plant.prototype.decreaseHeight = function(growth) {
@@ -44,21 +42,18 @@ var PearTree = new Tree();
 var OakTree = new Tree();
 
 
-pearInterval = setInterval(function () {
+interval = setInterval(function () {
   PearTree.grow(2);
-  pearDiv.innerHTML += `<p>Pear tree is now ${PearTree.height}cm tall and has ${PearTree.branches} branches.</p>`;
-}, 500);
-
-oakInterval = setInterval(function () {
   OakTree.grow(3);
-  oakDiv.innerHTML += `<p>Oak tree is now ${OakTree.height}cm tall and has ${OakTree.branches} branches.</p>`;
+  var output = `<p>Pear tree is now ${PearTree.height}cm tall and has ${PearTree.branches} branches<br>`;
+  output += `Oak tree is now ${OakTree.height}cm tall and has ${OakTree.branches} branches</p>`;
+  outputDiv.innerHTML += output;
 	counter++;
 	if (counter >= 30) {
+		clearInterval(interval);
 		console.log("finished");
-		clearInterval(pearInterval);
-		clearInterval(oakInterval);
 	};
-}, 500);
+}, 200);
 
 
 // *** TO DO ***
@@ -69,7 +64,6 @@ oakInterval = setInterval(function () {
 
 // The grow method does nothing but pass an argument to increaseHeight. Is that all it's supposed to do?
 
-// Change DOM output to be more like example
 
 
 

@@ -49,6 +49,11 @@ interval = setInterval(function () {
   output += `Oak tree is now ${OakTree.height}cm tall and has ${OakTree.branches} branches</p>`;
   outputDiv.innerHTML += output;
 	counter++;
+	if (counter % 10 === 0) {
+  	PearTree.trim(3);
+  	OakTree.trim(5);
+  	console.log(`Trim #${counter/10}`);
+  };
 	if (counter >= 30) {
 		clearInterval(interval);
 		console.log("finished");

@@ -1,7 +1,7 @@
 "use strict";
 
 var interval = null;
-var counter = 0;
+var counter = 1;
 var outputDiv = document.getElementById("output");
 
 function Plant() {};
@@ -45,15 +45,19 @@ var OakTree = new Tree();
 interval = setInterval(function () {
   PearTree.grow(2);
   OakTree.grow(3);
+
   var output = `<p>Pear tree is now ${PearTree.height}cm tall and has ${PearTree.branches} branches<br>`;
   output += `Oak tree is now ${OakTree.height}cm tall and has ${OakTree.branches} branches</p>`;
   outputDiv.innerHTML += output;
-	counter++;
+	
 	if (counter % 10 === 0) {
   	PearTree.trim(3);
   	OakTree.trim(5);
-  	console.log(`Trim #${counter/10}`);
+  	outputDiv.innerHTML += `<p class="trim">Trim #${counter/10}</p>`;
   };
+	
+	counter++;
+	
 	if (counter >= 30) {
 		clearInterval(interval);
 		console.log("finished");

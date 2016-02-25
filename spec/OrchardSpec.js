@@ -30,7 +30,8 @@ describe("The specification for Orchard", function() {
   });
 
 
-  // I don't know if these three tests are correct:
+ 
+ 
 	it("trim should decrease the height of the Tree by the integer passed to it", function() {
 		PearTree.height = 5;
 		PearTree.trim(2);
